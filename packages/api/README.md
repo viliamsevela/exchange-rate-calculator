@@ -1,4 +1,4 @@
 # API
 
 ## Tech stack
-- express.js
+- express.js as web application framework

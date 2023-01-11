@@ -31,3 +31,8 @@ dist/
 */**/dist
 node_modules/
 */**/node_modules
+
+### Dotenv files
+.env
+*.env
+!.env.*.example
