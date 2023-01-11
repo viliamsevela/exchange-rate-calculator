@@ -23,10 +23,11 @@ gen
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 *.tsbuildinfo
 
 ### JS/TS generated
 dist/
-*/**/build
+*/**/dist
 node_modules/
 */**/node_modules
