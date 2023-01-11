@@ -1,0 +1,25 @@
+{
+  "name": "@exchange-rate-calculator/api",
+  "version": "1.0.0",
+  "author": "Viliam Sevela <sevelaviliam@gmail.com>",
+  "license": "ISC",
+  "directories": {
+    "dist": "dist"
+  },
+  "references": [
+    {
+      "path": "packages/api"
+    }
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nodemon",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  }
+}
