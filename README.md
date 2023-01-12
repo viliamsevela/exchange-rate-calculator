@@ -8,8 +8,8 @@ cp .env.example .env
 # Install all the dependencies
 yarn
 
-# To start the API in development mode (hot reload support)
-yarn dev:api
+# To start whole monorepo in the development mode (hot reload support)
+yarn dev
 ```
 
 ## Global tech stack
@@ -18,3 +18,4 @@ yarn dev:api
 
 ## Sub readme navigation
 - [API](./packages/api/README.md)
+- [APP](./packages/app/README.md)

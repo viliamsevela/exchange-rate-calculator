@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev:api": "yarn workspace @exchange-rate-calculator/api dev",
+    "dev:app": "yarn workspace @exchange-rate-calculator/app dev",
+    "dev": "concurrently yarn:dev:*",
     "lint": "eslint \"packages/**/src/**/*.ts\" --fix"
   },
   "keywords": [],
@@ -19,6 +21,7 @@
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
+    "concurrently": "^7.6.0",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
