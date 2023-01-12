@@ -8,7 +8,7 @@
     "dev": "concurrently yarn:dev:*",
     "lint": "eslint \"packages/**/src/**/*.ts\" --fix"
   },
-  "keywords": [],
+  "keywords": ["react", "express"],
   "author": "Viliam Sevela <sevelaviliam@gmail.com>",
   "license": "ISC",
   "workspaces": {

@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import ExchangeRateListSection from './section/ExchangeRateList.section';
 
+const queryClient = new QueryClient();
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
   
@@ -29,9 +32,10 @@ const GlobalStyle = createGlobalStyle`
 
 export default function App(): JSX.Element {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <GlobalStyle />
-      <p>TODO</p>
-    </>
+      <p>TODO: calculator section</p>
+      <ExchangeRateListSection />
+    </QueryClientProvider>
   );
 }
