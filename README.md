@@ -16,6 +16,12 @@ yarn dev
 - typescript
 - eslint
 
+## TODO
+- [ ] build scripts
+- [ ] allow set default currency (now it's CZK only)
+- [ ] deploy somewhere
+- [ ] exchange rate history
+
 ## Sub readme navigation
 - [API](./packages/api/README.md)
 - [APP](./packages/app/README.md)
