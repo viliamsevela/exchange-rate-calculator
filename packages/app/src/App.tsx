@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ExchangeRateListSection from './section/ExchangeRateList.section';
+import CurrencyConvertorSection from './section/CurrencyConvertor.section';
 
 const queryClient = new QueryClient();
 const GlobalStyle = createGlobalStyle`
@@ -34,7 +35,7 @@ export default function App(): JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyle />
-      <p>TODO: calculator section</p>
+      <CurrencyConvertorSection />
       <ExchangeRateListSection />
     </QueryClientProvider>
   );

@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios';
+import { DateTime } from 'luxon';
 import { CnbApiError } from '../error/cnb-api-error';
 
 export type ExchangeRate = {
@@ -14,6 +15,9 @@ export type ExchangeRatesData = {
   sequence: number;
   data: ExchangeRate[];
 };
+
+// TODO: cache mechanism is very basic, totally should be improved
+let exchangeRatesBackup: null | ExchangeRatesData = null;
 
 export class CnbApi {
   private static apiUrl =
@@ -58,7 +62,7 @@ export class CnbApi {
     return {
       countryName: values[0],
       currencyName: values[1],
-      currencyCode: values[3],
+      currencyCode: values[3].toLowerCase(),
       amount: parseFloat(values[2]),
       rate: parseFloat(values[4]),
     };
@@ -66,9 +70,16 @@ export class CnbApi {
 
   public static fetchExchangeRates = async (): Promise<ExchangeRatesData> => {
     try {
-      // TODO: Create some cache mechanism. Based on the documentation CNB is updating exchange rates once a day (after 2:30 p.m.)
+      const now = DateTime.now();
+      const updateTime = DateTime.now().startOf('day').plus({ hour: 14, minute: 35 });
+
+      if (exchangeRatesBackup && now < updateTime) {
+        return exchangeRatesBackup;
+      }
+
       const { data } = await axios.get<string>(CnbApi.apiUrl);
-      return CnbApi.parseExchangeRates(data);
+      exchangeRatesBackup = CnbApi.parseExchangeRates(data);
+      return exchangeRatesBackup;
     } catch (error) {
       if (error instanceof AxiosError) {
         throw new CnbApiError('Could not fetch CNB API');
