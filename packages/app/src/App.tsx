@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ExchangeRateListSection from './section/ExchangeRateList.section';
 import CurrencyConvertorSection from './section/CurrencyConvertor.section';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const queryClient = new QueryClient();
 const GlobalStyle = createGlobalStyle`
@@ -22,12 +23,24 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
   }
+
+  * {box-sizing: border-box;}
+  
   body {
     margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+  }
+  input[type=number] {
+	  -moz-appearance: textfield;
+  }
+  
+  #root {
+    width: 100%
   }
 `;
 
